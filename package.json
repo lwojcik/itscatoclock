@@ -1,0 +1,14 @@
+{
+  "name": "itscatoclock",
+  "main": "start.js",
+  "scripts": {
+    "launch": "node --use_strict update.js"
+  },
+  "dependencies": {
+    "mongoose": "^4.12.4"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "mocha": "3.5.1"
+  }
+}

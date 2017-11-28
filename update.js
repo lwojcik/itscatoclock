@@ -1,12 +1,14 @@
 'use strict';
 
-console.log('updating');
+const twitterApi = require('./api/twitter.js');
 
 const getRandomCatPic = () => {
   // randomImage
   // check if the image is in the banlist
   // if yes, select another
   // if not, return it
+
+  return 'getRandomCatPic';
 };
 
 const constructTweet = () => {
@@ -16,6 +18,8 @@ const constructTweet = () => {
   // place.name + place.time
 
   // return string to tweet
+
+  return 'tweetWithTimes';
 }
 
 const startTheMagic = () => {

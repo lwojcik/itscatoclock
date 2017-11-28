@@ -11,6 +11,8 @@ const getRandomCatPic = () => {
   // check if the image is in the banlist
   // if yes, select another
   // if not, return it
+
+  return 'getRandomCatPic';
 };
 
 const constructTweet = () => {
@@ -20,6 +22,8 @@ const constructTweet = () => {
   // place.name + place.time
 
   // return string to tweet
+
+  return 'tweetWithTimes';
 }
 
 const startTheMagic = () => {

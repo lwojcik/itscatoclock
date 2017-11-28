@@ -35,3 +35,7 @@ jspm_packages
 
 *.sublime-workspace
 .DS_Store
+
+# Environment variables
+
+.env

@@ -10,16 +10,40 @@ const client = new Twitter({
     access_token_key: twitterApi.accessToken,
     access_token_secret: twitterApi.accessTokenSecret
   });
-   
 
 // twitter api methods
 
-// postTheKitteh (randomCatPic, tweetWithTimes)
-
 const postTheTweet = (media, status) => {
-  
+
+  // Load your image
+  // var data = require('fs').readFileSync('image.jpg');
+
+  // // Make post request on media endpoint. Pass file data as media parameter
+  // client.post('media/upload', {media: data}, function(error, media, response) {
+
+  //   if (!error) {
+
+  //     // If successful, a media object will be returned.
+  //     console.log(media);
+
+  //     // Lets tweet it
+  //     var status = {
+  //       status: 'I am a tweet',
+  //       media_ids: media.media_id_string // Pass the media id string
+  //     }
+
+  //     client.post('statuses/update', status, function(error, tweet, response) {
+  //       if (!error) {
+  //         console.log(tweet);
+  //       }
+  //     });
+
+  //   }
+  // });
+
   console.log(twitterApi);
   console.log(status);
+
   client.post('statuses/update', {status: status}, function(error, tweet, response) {
     if (!error) {
       console.log(tweet);

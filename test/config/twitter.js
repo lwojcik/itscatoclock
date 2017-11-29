@@ -16,7 +16,7 @@ describe('Twitter config', function() {
   });
   
   it('should be able to access non-empty env.ICOC_TWITTER_USERNAME variable', function() {
-    expect(env.ICOC_TWITTER_USERNAME).to.be.a('string');
+    expect(env.ICOC_TWITTER_USERNAME).to.be.a('string').that.is.not.empty;
   });
   
   it('should assign twitter.username to be equal to env.ICOC_TWITTER_USERNAME', function() {
@@ -28,7 +28,7 @@ describe('Twitter config', function() {
   });
   
   it('should be able to access non-empty env.ICOC_TWITTER_CONSUMER_KEY variable', function() {
-    expect(env.ICOC_TWITTER_CONSUMER_KEY).to.be.a('string');
+    expect(env.ICOC_TWITTER_CONSUMER_KEY).to.be.a('string').that.is.not.empty;
   });
   
   it('should assign twitter.consumerKey to be equal to env.ICOC_TWITTER_CONSUMER_KEY', function() {
@@ -40,7 +40,7 @@ describe('Twitter config', function() {
   });
   
   it('should be able to access non-empty env.ICOC_TWITTER_CONSUMER_SECRET variable', function() {
-    expect(env.ICOC_TWITTER_CONSUMER_SECRET).to.be.a('string');
+    expect(env.ICOC_TWITTER_CONSUMER_SECRET).to.be.a('string').that.is.not.empty;
   });
   
   it('should assign twitter.consumerSecret to be equal to env.ICOC_TWITTER_CONSUMER_SECRET', function() {
@@ -52,7 +52,7 @@ describe('Twitter config', function() {
   });
   
   it('should be able to access non-empty env.ICOC_TWITTER_ACCESS_TOKEN variable', function() {
-    expect(env.ICOC_TWITTER_ACCESS_TOKEN).to.be.a('string');
+    expect(env.ICOC_TWITTER_ACCESS_TOKEN).to.be.a('string').that.is.not.empty;
   });
   
   it('should assign twitter.accessToken to be equal to env.ICOC_TWITTER_ACCESS_TOKEN', function() {
@@ -64,7 +64,7 @@ describe('Twitter config', function() {
   });
   
   it('should be able to access non-empty env.ICOC_TWITTER_ACCESS_TOKEN_SECRET variable', function() {
-    expect(env.ICOC_TWITTER_ACCESS_TOKEN_SECRET).to.be.a('string');
+    expect(env.ICOC_TWITTER_ACCESS_TOKEN_SECRET).to.be.a('string').that.is.not.empty;
   });
   
   it('should assign twitter.accessTokenSecret to be equal to env.ICOC_TWITTER_ACCESS_TOKEN_SECRET', function() {

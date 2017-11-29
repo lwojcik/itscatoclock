@@ -15,7 +15,7 @@ describe('Database config', function() {
   });
  
   it('should be able to access non-empty env.ICOC_MONGODB_DB_URL variable', function() {
-    expect(env.ICOC_MONGODB_DB_URL).to.be.a('string');
+    expect(env.ICOC_MONGODB_DB_URL).to.be.a('string').that.is.not.empty;
   });
 
   it('database.url should be equal to env.ICOC_MONGODB_DB_URL', function() {

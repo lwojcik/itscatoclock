@@ -15,7 +15,7 @@ describe('App config', function() {
   });
 
   it('should be able to access non-empty env.ICOC_IMAGE_PATH variable', function() {
-    expect(env.ICOC_IMAGE_PATH).to.be.a('string');
+    expect(env.ICOC_IMAGE_PATH).to.be.a('string').that.is.not.empty;
   });
 
   it('should assign app.imagePath to be equal to env.ICOC_IMAGE_PATH', function() {

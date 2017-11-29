@@ -1,16 +1,18 @@
 'use strict';
 
+const Twitter = require('twitter');
+
 // twitter api methods
 
 // postTheKitteh (randomCatPic, tweetWithTimes)
 
-const postTheKitteh = (randomCatPic, tweetWithTimes) => {
+const postTheTweet = (media, tweet) => {
     console.log('cat pic:')
-    console.log(randomCatPic);
+    console.log(media);
     console.log('tweet with times:');
-    console.log(tweetWithTimes);
+    console.log(tweet);
 }
 
 module.exports = {
-    postTheKitteh: postTheKitteh
+    postTheTweet: postTheTweet
 }

@@ -2,7 +2,8 @@
   "name": "itscatoclock",
   "main": "start.js",
   "scripts": {
-    "launch": "node --use_strict update.js"
+    "launch": "node --use_strict update.js",
+    "test": "mocha --recursive"
   },
   "dependencies": {
     "mongoose": "^4.12.4"

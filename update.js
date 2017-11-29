@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').config()
+require('dotenv').config();
 
 const database = require('./config/database.js');
 const app = require('./config/app.js');

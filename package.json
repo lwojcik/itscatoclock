@@ -6,6 +6,7 @@
     "test": "mocha --recursive"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "mongoose": "^4.12.4",
     "twitter": "^1.7.1"
   },

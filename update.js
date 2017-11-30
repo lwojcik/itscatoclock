@@ -1,10 +1,12 @@
 'use strict';
 
-require('dotenv').config()
+require('dotenv').config();
 
 const database = require('./config/database.js');
 const app = require('./config/app.js');
 const twitter = require('./config/twitter.js');
+
+const twitterApi = require('./api/twitter.js');
 
 const getRandomCatPic = () => {
   // randomImage
@@ -27,10 +29,10 @@ const constructTweet = () => {
 }
 
 const startTheMagic = () => {
-  //const randomCatPic = getRandomCatPic();
-  //const tweetWithTimes = constructTweet();
+  const randomCatPic = getRandomCatPic();
+  const tweetWithTimes = constructTweet();
 
-  //twitterApi.postTheKitteh(randomCatPic, tweetWithTimes);
+  twitterApi.postTheTweet(randomCatPic, tweetWithTimes);
 };
 
 startTheMagic();

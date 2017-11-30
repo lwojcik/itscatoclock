@@ -8,6 +8,8 @@ const twitter = require('./config/twitter.js');
 
 const twitterApi = require('./api/twitter.js');
 
+const Twitter = require('twitter');
+
 const getRandomCatPic = () => {
   // randomImage
   // check if the image is in the banlist
@@ -29,10 +31,12 @@ const constructTweet = () => {
 }
 
 const startTheMagic = () => {
-  const randomCatPic = getRandomCatPic();
-  const tweetWithTimes = constructTweet();
+  //const randomCatPic = getRandomCatPic();
+  //const tweetWithTimes = constructTweet();
 
-  twitterApi.postTheTweet(randomCatPic, tweetWithTimes);
+  //twitterApi.postTheTweet(randomCatPic, tweetWithTimes);
+  //console.log(twitter);
+  console.log(Twitter().request.post);
 };
 
 startTheMagic();

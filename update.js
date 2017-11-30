@@ -10,6 +10,8 @@ const twitterApi = require('./api/twitter.js');
 
 const Twitter = require('twitter');
 
+const banList = require('./models/BanList.js');
+
 const getRandomCatPic = () => {
   // randomImage
   // check if the image is in the banlist
@@ -36,7 +38,10 @@ const startTheMagic = () => {
 
   //twitterApi.postTheTweet(randomCatPic, tweetWithTimes);
   //console.log(twitter);
-  console.log(Twitter().request.post);
+
+  banList.addImage('lol')
+  banList.isImageBanned('lol');
+  banList.purge();
 };
 
 startTheMagic();

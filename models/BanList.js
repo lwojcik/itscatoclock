@@ -1,6 +1,30 @@
-// ban list model
 
-// methods:
-// - check if image is banned based on its path, returns true/false
-// - add image to the banlist
-// - purge the banlist
+const BanList = {
+
+  /**
+   * Adds the image to the banlist
+   * @param  {String} imageName
+   * @return {Boolean} true if image was added, false if not
+   */
+  addImage: function(imageName) {
+    console.log('adding ' + imageName + ' to the banlist');
+  },
+
+  /**
+   * Check if image is in the banlist
+   * @param  {String} imageName
+   * @return {Boolean} true if image is banned, false if not
+   */
+  isImageBanned: function(imageName) {
+    console.log('checking if ' + imageName + ' is in the banlist');
+  },
+
+  /**
+   * Purges all items from the banlist
+   */
+  purge: function() {
+    console.log('purging the banlist');
+  }
+};
+
+module.exports = BanList;

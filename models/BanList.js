@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+
+const Image = require('./Image');
 
 const BanList = {
 

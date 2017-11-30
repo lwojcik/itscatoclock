@@ -1,4 +1,7 @@
-// cat pic model
+const mongoose = require('mongoose');
 
-// attributes:
-// - path to image
+const imageSchema = new mongoose.Schema({
+    name: String
+});
+
+module.exports = mongoose.model('Image', imageSchema);

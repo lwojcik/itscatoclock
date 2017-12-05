@@ -1,0 +1,29 @@
+const places = {
+    {
+        emoji: '🇺🇸',
+        name: 'Chicago',
+        utcDifference: -10
+    },
+    {
+        emoji: '🇺🇸',
+        name: 'New York',
+        utcDifference: -5
+    },
+    {
+        emoji: '🇬🇧',
+        name: 'London',
+        utcDifference: 0
+    },
+    {
+        emoji: '🇬🇪',
+        name: 'Tbilisi',
+        utcDifference: 4
+    },
+    {
+        emoji: '🇰🇷',
+        name: 'Seoul',
+        utcDifference: 9
+    }
+}
+
+module.exports = places;

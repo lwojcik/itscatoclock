@@ -43,3 +43,7 @@ jspm_packages
 # Places config
 
 .places
+
+# Image folder
+
+images/

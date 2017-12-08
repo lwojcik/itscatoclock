@@ -1,6 +1,7 @@
 'use strict';
 
 const Twitter = require('twitter');
+const fs = require('fs');
 
 const twitterApi = require('../config/twitter.js');
 
@@ -13,44 +14,43 @@ const client = new Twitter({
 
 // twitter api methods
 
-const postTheTweet = (media, status) => {
+const postTheTweetWithMedia = (media, content, status) => {
+  const data = fs.readFileSync(media);
+  
+  
+  // Make post request on media endpoint. Pass file data as media parameter
+  client.post('media/upload', {media: data}, function(error, media, response) {
 
-  // Load your image
-  // var data = require('fs').readFileSync('image.jpg');
+    if (!error) {
 
-  // // Make post request on media endpoint. Pass file data as media parameter
-  // client.post('media/upload', {media: data}, function(error, media, response) {
+       // If successful, a media object will be returned.
+       console.log(media);
 
-  //   if (!error) {
+       // Lets tweet it
+       var status = {
+         status: 'I am a tweet',
+         media_ids: media.media_id_string // Pass the media id string
+       }
 
-  //     // If successful, a media object will be returned.
-  //     console.log(media);
+       client.post('statuses/update', status, function(error, tweet, response) {
+         if (!error) {
+           console.log(tweet);
+         }
+       });
 
-  //     // Lets tweet it
-  //     var status = {
-  //       status: 'I am a tweet',
-  //       media_ids: media.media_id_string // Pass the media id string
-  //     }
-
-  //     client.post('statuses/update', status, function(error, tweet, response) {
-  //       if (!error) {
-  //         console.log(tweet);
-  //       }
-  //     });
-
-  //   }
-  // });
+     }
+});
 
   console.log(twitterApi);
   console.log(status);
 
-  client.post('statuses/update', {status: status}, function(error, tweet, response) {
-    if (!error) {
-      console.log(tweet);
-    } else {
-      console.log(error);
-    }
-  });
+  // client.post('statuses/update', {status: status}, function(error, tweet, response) {
+  //   if (!error) {
+  //     console.log(tweet);
+  //   } else {
+  //     console.log(error);
+  //   }
+  // });
 }
 
 module.exports = {

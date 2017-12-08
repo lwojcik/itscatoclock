@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const database = require('../config/database');
+
 mongoose.connect(database.url, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
@@ -51,8 +52,10 @@ const BanList = {
   /**
    * Purges all items from the banlist
    */
-  purge: function() {
-    console.log('purging the banlist');
+  purge: function(next) {
+    Image.remove({}, function() {
+      next();
+    });
   }
 };
 

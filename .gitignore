@@ -47,3 +47,5 @@ jspm_packages
 # Image folder
 
 images/
+
+# Cache file with number of images

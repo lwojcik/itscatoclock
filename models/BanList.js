@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const database = require('../config/database');
+
 mongoose.connect(database.url, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
@@ -13,7 +14,7 @@ const BanList = {
    * @param  {Function} callback
    * @return {Boolean} true if image was added, false if not
    */
-  addImage: function(imageName, callback) {
+  addImage: function(imageName, next) {
     const imageQuery = { name: imageName };
 
     Image.findOne(imageQuery, function(err, image) {
@@ -22,10 +23,10 @@ const BanList = {
       if (image === null) {
         Image.create(imageQuery, function(err) {
           if (err) throw err;
-          callback();
+          next();
         });
       } else {
-        callback();
+        next();
       }
     });
   },
@@ -35,15 +36,26 @@ const BanList = {
    * @param  {String} imageName
    * @return {Boolean} true if image is banned, false if not
    */
-  isImageBanned: function(imageName) {
-    console.log('checking if ' + imageName + ' is in the banlist');
+  isImageBanned: function(imageName, next) {
+    const imageQuery = { name: imageName };
+    Image.findOne(imageQuery, function(err, image) {
+      if (err) throw err;
+      
+      if (image) {
+        next(true);
+      } else {
+        next(false);
+      }
+    });
   },
 
   /**
    * Purges all items from the banlist
    */
-  purge: function() {
-    console.log('purging the banlist');
+  purge: function(next) {
+    Image.remove({}, function() {
+      next();
+    });
   }
 };
 

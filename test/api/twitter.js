@@ -61,7 +61,7 @@ describe('Twitter API library', function() {
 });
 
 describe('Twitter API abstraction', function() {
-  it('should expose postTheTweet() method', function() {
-    expect(twitterApi).to.have.property('postTheTweet').that.is.a('function');
+  it('should expose postTweetWithMedia() method', function() {
+    expect(twitterApi).to.have.property('postTweetWithMedia').that.is.a('function');
   });
 });

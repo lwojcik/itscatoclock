@@ -2,8 +2,7 @@
 
 require('dotenv').config();
 
-const Twitter = require('twitter');
-const fs = require('fs');
+const moment = require('moment-timezone');
 
 // config
 
@@ -34,7 +33,7 @@ const getRandomImageNumber = (numberOfImages, next) => {
   const high = numberOfImages;
   const selectedNumber =  Math.floor(Math.random() * (high - low + 1) + low);
 
-  next(selectedNumber)
+  next(selectedNumber);
 };
 
 const getImageByNumber = (imageNumber, next) => {
@@ -49,12 +48,20 @@ const checkIfImageIsBanned = (image, next) => {
   });
 };
 
+const banImage = (image, next) => {
+  BanList.addImage(image, function() {
+    next();
+  })
+}
+
 const constructTweet = () => {
   const places = Places;
   let tweetContent = '';
   
   places.forEach(function(place, id, array) {
-    tweetContent += place.emoji + ' ' + place.name + ': ' + place.utcDifference;
+    place.currentTime = moment().tz(place.timezone).format('HH:mm');
+
+    tweetContent += place.emoji + ' ' + place.name + ': ' + place.currentTime;
     if (id !== array.length -1) tweetContent += '\n';
   });
 
@@ -64,16 +71,23 @@ const constructTweet = () => {
 // main method
 
 const startTheMagic = () => {
-  determineNumberOfImages(function(numberOfImages) {
-    getRandomImageNumber(numberOfImages, function(chosenImageNumber) {
-      getImageByNumber(chosenImageNumber, function(image) { 
-        checkIfImageIsBanned(image, function(image, isItBanned) {
+  determineNumberOfImages((numberOfImages) => {
+    getRandomImageNumber(numberOfImages, (chosenImageNumber) => {
+      getImageByNumber(chosenImageNumber, (image) => { 
+        checkIfImageIsBanned(image, (image, isItBanned) => {
           if (isItBanned) {
             startTheMagic();
           } else {
             const tweetContent = constructTweet();
-            console.log(tweetContent);
-            console.log(image);
+            const imagePath = app.imagePath + image;
+
+            banImage(imagePath, () => {
+              return;
+            });
+
+            twitterApi.postTweetWithMedia(imagePath, tweetContent, () => {
+              process.exit();
+            });
           }
         });
       });

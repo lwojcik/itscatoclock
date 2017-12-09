@@ -6,6 +6,7 @@ const ImageBase = {
     const imageFolder = appConfig.imagePath;
 
     fs.readdir(imageFolder, (err, files) => {
+      if (err) throw err;
       next(files.length);
     });
   },
@@ -14,6 +15,7 @@ const ImageBase = {
     const imageFolder = appConfig.imagePath;
 
     fs.readdir(imageFolder, (err, files) => {
+      if (err) throw err;
       next(files[number]);
     });
   }

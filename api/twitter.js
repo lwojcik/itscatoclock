@@ -16,10 +16,10 @@ const client = new Twitter({
 // twitter api methods
 
 const postTweetWithMedia = (image, content, next) => {
-  const media = appConfig.imagePath + image;
-  const data = fs.readFileSync(media);
+  const data = fs.readFileSync(image);
 
   client.post('media/upload', {media: data}, function(error, media, response) {
+    if (error) throw error;
     if (!error) {
       const status = {
          status: content,
@@ -27,9 +27,8 @@ const postTweetWithMedia = (image, content, next) => {
       }
 
       client.post('statuses/update', status, function(error, tweet, response) {
-        if (!error) {
-          console.log(tweet);
-        }
+        if (error) throw error;
+        next();
       });
     }
   });

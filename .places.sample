@@ -1,4 +1,4 @@
-const places = {
+const places = [
     {
         emoji: '🇺🇸',
         name: 'Chicago',
@@ -15,15 +15,15 @@ const places = {
         utcDifference: 0
     },
     {
-        emoji: '🇬🇪',
-        name: 'Tbilisi',
-        utcDifference: 4
-    },
-    {
         emoji: '🇰🇷',
         name: 'Seoul',
         utcDifference: 9
+    },
+    {
+        emoji: '🇦🇺',
+        name: 'Canberra',
+        utcDifference: 11
     }
-}
+];
 
 module.exports = places;

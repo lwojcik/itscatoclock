@@ -42,9 +42,9 @@ const BanList = {
       if (err) throw err;
       
       if (image) {
-        next(true);
+        next(imageName, true);
       } else {
-        next(false);
+        next(imageName, false);
       }
     });
   },

@@ -2,7 +2,7 @@ const fs = require('fs');
 const appConfig = require('../config/app');
 
 const ImageBase = {
-  howManyImages: (next) => {
+  determineNumberOfImages: (next) => {
     const imageFolder = appConfig.imagePath;
 
     fs.readdir(imageFolder, (err, files) => {

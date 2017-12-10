@@ -16,6 +16,10 @@ const BanList = require('./models/BanList.js');
 const ImageBase = require('./models/ImageBase.js');
 const Places = require('./places');
 
+// emojis
+
+const TimeEmoji = require('./emoji/time.js');
+
 // logic
 
 const determineNumberOfImages = (next) => {
@@ -56,8 +60,11 @@ const constructTweet = () => {
 
   places.forEach((place, id, array) => {
     const currentPlace = place;
+    const currentHour = moment().tz(place.timezone).format('h');
+    currentPlace.currentTimeEmoji = TimeEmoji[`h${currentHour}`];
     currentPlace.currentTime = moment().tz(place.timezone).format('HH:mm');
-    tweetContent += `${currentPlace.emoji} ${currentPlace.name}: ${currentPlace.currentTime} `;
+
+    tweetContent += `${currentPlace.currentTimeEmoji} ${currentPlace.emoji} ${currentPlace.name}: ${currentPlace.currentTime} `;
 
     if (id !== array.length - 1) tweetContent += '\n';
   });

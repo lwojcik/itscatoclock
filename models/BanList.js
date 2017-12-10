@@ -14,14 +14,14 @@ const BanList = {
    * @param  {Function} callback
    * @return {Boolean} true if image was added, false if not
    */
-  addImage: function(imageName, next) {
+  addImage: (imageName, next) => {
     const imageQuery = { name: imageName };
 
-    Image.findOne(imageQuery, function(err, image) {
+    Image.findOne(imageQuery, (err, image) => {
       if (err) throw err;
 
       if (image === null) {
-        Image.create(imageQuery, function(err) {
+        Image.create(imageQuery, (err) => {
           if (err) throw err;
           next();
         });
@@ -36,27 +36,28 @@ const BanList = {
    * @param  {String} imageName
    * @return {Boolean} true if image is banned, false if not
    */
-  isImageBanned: function(imageName, next) {
+  isImageBanned: (imageName, next) => {
     const imageQuery = { name: imageName };
-    Image.findOne(imageQuery, function(err, image) {
+    Image.findOne(imageQuery, (err, image) => {
       if (err) throw err;
-      
+      let isItBanned = false;
+
       if (image) {
-        next(imageName, true);
-      } else {
-        next(imageName, false);
+        isItBanned = true;
       }
+
+      next(imageName, isItBanned);
     });
   },
 
   /**
    * Purges all items from the banlist
    */
-  purge: function(next) {
-    Image.remove({}, function() {
+  purge: (next) => {
+    Image.remove({}, () => {
       next();
     });
-  }
+  },
 };
 
 module.exports = BanList;

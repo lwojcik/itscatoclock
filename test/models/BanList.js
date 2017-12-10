@@ -1,4 +1,5 @@
 const chai = require('chai');
+
 const expect = chai.expect;
 
 const BanList = require('../../models/BanList.js');

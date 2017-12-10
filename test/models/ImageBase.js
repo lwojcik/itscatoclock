@@ -1,5 +1,6 @@
-const chai = require('chai');
-const expect = chai.expect;
+/* eslint-env mocha */
+
+const { expect } = require('chai');
 
 const ImageBase = require('../../models/ImageBase.js');
 

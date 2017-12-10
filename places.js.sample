@@ -2,27 +2,27 @@ const places = [
   {
     emoji: '🇺🇸',
     name: 'Chicago',
-    utcDifference: -10,
+    timezone: 'America/Chicago',
   },
   {
     emoji: '🇺🇸',
     name: 'New York',
-    utcDifference: -5,
+    timezone: 'America/New_York',
   },
   {
     emoji: '🇬🇧',
     name: 'London',
-    utcDifference: 0,
+    timezone: 'Europe/London',
   },
   {
     emoji: '🇰🇷',
     name: 'Seoul',
-    utcDifference: 9,
+    timezone: 'Asia/Seoul',
   },
   {
     emoji: '🇦🇺',
     name: 'Canberra',
-    utcDifference: 11,
+    timezone: 'Australia/Canberra',
   },
 ];
 

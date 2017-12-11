@@ -59,6 +59,7 @@ module.exports = places;
 
 ## Things to improve someday
 
+* Convert callback hell to promises.
 * Notifications about the success (or failure) of script execution. 
 * Automatic banlist purge when all images get banned.
 

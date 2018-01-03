@@ -1,5 +1,7 @@
 # itscatoclock
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/lwojcik/itscatoclock.svg)](https://greenkeeper.io/)
+
 The following is a script [running my Twitter bot, @itscatoclock](https://twitter.com/itscatoclock).
 
 When executed, it chooses a random image from a pre-configured directory and tweets it together with current times in different cities. The image is added to the banlist which prevents the same images from being posted more than once.

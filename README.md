@@ -1,6 +1,8 @@
 # itscatoclock
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/lwojcik/itscatoclock.svg)](https://greenkeeper.io/)
+[![NSP Status](https://nodesecurity.io/orgs/lwojcik/projects/79fc0b24-1685-4f79-8d51-ed10c473ccd5/badge)](https://nodesecurity.io/orgs/lwojcik/projects/79fc0b24-1685-4f79-8d51-ed10c473ccd5)
+[![Known Vulnerabilities](https://snyk.io/test/github/lwojcik/itscatoclock/badge.svg?targetFile=package.json)](https://snyk.io/test/github/lwojcik/itscatoclock?targetFile=package.json)
 
 The following is a script [running my Twitter bot, @itscatoclock](https://twitter.com/itscatoclock).
 

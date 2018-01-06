@@ -1,7 +1,19 @@
 {
+  "author": "Łukasz Wójcik <hello@lukaszwojcik.net> (https://github.com/lwojcik)",
   "name": "itscatoclock",
-  "main": "start.js",
+  "description": "One kitty pic every full hour on Twitter",
+  "version": "1.1.0",
+  "homepage": "https://github.com/lwojcik/itscatoclock",
+  "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lwojcik/itscatoclock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lwojcik/itscatoclock/issues"
+  },
+  "main": "start.js",
   "scripts": {
     "launch": "node --use_strict update.js",
     "test": "mocha --recursive",

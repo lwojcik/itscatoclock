@@ -21,8 +21,8 @@ const BanList = {
       if (err) throw err;
 
       if (image === null) {
-        Image.create(imageQuery, (err) => {
-          if (err) throw err;
+        Image.create(imageQuery, (imageCreationErr) => {
+          if (imageCreationErr) throw imageCreationErr;
           next();
         });
       } else {

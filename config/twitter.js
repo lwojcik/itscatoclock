@@ -1,8 +1,6 @@
-'use strict'
-
 require('dotenv').config();
 
-const env = process.env;
+const { env } = process;
 
 const twitter = {};
 

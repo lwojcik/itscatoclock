@@ -18,7 +18,7 @@ const ImageBase = {
       if (err) throw err;
       next(files[number]);
     });
-  }
-}
+  },
+};
 
 module.exports = ImageBase;

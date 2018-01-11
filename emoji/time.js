@@ -1,5 +1,3 @@
-'use strict'
-
 const emoji = {};
 
 emoji.h1 = '🕐';

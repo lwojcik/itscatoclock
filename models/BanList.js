@@ -14,50 +14,41 @@ const BanList = {
    * @param  {Function} callback
    * @return {Boolean} true if image was added, false if not
    */
-  addImage: (imageName, next) => {
-    const imageQuery = { name: imageName };
-
-    Image.findOne(imageQuery, (err, image) => {
-      if (err) throw err;
-
-      if (image === null) {
-        Image.create(imageQuery, (err) => {
-          if (err) throw err;
-          next();
-        });
-      } else {
-        next();
-      }
-    });
-  },
+  addImage: imageName => new Promise((resolve, reject) => {
+    Image.findOne({ name: imageName })
+      .then((image) => {
+        if (image === null) {
+          Image.create({ name: imageName }).then(() => resolve()).catch(error => reject(error));
+        }
+      })
+      .catch(error => reject(error));
+  }),
 
   /**
    * Checks if image is in the banlist
    * @param  {String} imageName
    * @return {Boolean} true if image is banned, false if not
    */
-  isImageBanned: (imageName, next) => {
-    const imageQuery = { name: imageName };
-    Image.findOne(imageQuery, (err, image) => {
-      if (err) throw err;
-      let isItBanned = false;
-
-      if (image) {
-        isItBanned = true;
-      }
-
-      next(imageName, isItBanned);
-    });
-  },
+  isImageBanned: imageName => new Promise((resolve, reject) => {
+    Image.findOne({ name: imageName })
+      .then((image) => {
+        let isItBanned = false;
+        if (image) {
+          isItBanned = true;
+        }
+        resolve({ isItBanned, imageName });
+      })
+      .catch(error => reject(error));
+  }),
 
   /**
    * Purges all items from the banlist
    */
-  purge: (next) => {
-    Image.remove({}, () => {
-      next();
-    });
-  },
+  purge: () => new Promise((resolve, reject) => {
+    Image.remove({})
+      .then(() => resolve())
+      .catch(error => reject(error));
+  }),
 };
 
 module.exports = BanList;

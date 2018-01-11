@@ -1,6 +1,4 @@
-'use strict'
-
-const env = process.env;
+const { env } = process;
 
 const app = {};
 

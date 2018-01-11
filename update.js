@@ -28,7 +28,7 @@ const determineNumberOfImages = () => new Promise((resolve, reject) => {
     .catch(error => reject(error));
 });
 
-const getRandomImageNumber = numberOfImages => Math.floor((Math.random() * (numberOfImages + 1)));
+const getRandomNumber = numberOfImages => Math.floor(Math.random() * (numberOfImages + 1));
 
 const getImageByNumber = imageNumber => new Promise((resolve, reject) => {
   ImageBase.getImage(imageNumber)
@@ -67,10 +67,9 @@ const constructTweet = () => {
 };
 
 const publishTweet = (imagePath, tweetContent) => new Promise((resolve, reject) => {
-  twitterApi.postTweetWithMedia(imagePath, tweetContent, (error) => {
-    if (error) reject(error);
-    resolve();
-  });
+  twitterApi.postTweetWithMedia(imagePath, tweetContent)
+    .then(() => resolve())
+    .catch(error => reject(error));
 
   banImage(imagePath);
 });
@@ -79,7 +78,7 @@ const publishTweet = (imagePath, tweetContent) => new Promise((resolve, reject) 
 
 const startTheMagic = () => {
   determineNumberOfImages()
-    .then(numberOfImages => getRandomImageNumber(numberOfImages))
+    .then(numberOfImages => getRandomNumber(numberOfImages))
     .then(chosenImageNumber => getImageByNumber(chosenImageNumber))
     .then(chosenImage => checkIfImageIsBanned(chosenImage))
     .then((imageObject) => {

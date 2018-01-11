@@ -12,24 +12,21 @@ const client = new Twitter({
 
 // twitter api methods
 
-const postTweetWithMedia = (image, content, next) => {
+const postTweetWithMedia = (image, content) => new Promise((resolve, reject) => {
   const data = fs.readFileSync(image);
 
-  client.post('media/upload', { media: data }, (error, media) => {
-    if (error) throw error;
-    if (!error) {
+  client.post('media/upload', { media: data })
+    .then((media) => {
       const status = {
         status: content,
         media_ids: media.media_id_string, // Pass the media id string
       };
 
-      client.post('statuses/update', status, (postError, tweet) => {
-        if (postError) throw postError;
-        next();
-      });
-    }
-  });
-};
+      client.post('statuses/update', status)
+        .then(() => resolve());
+    })
+    .catch(error => reject(error));
+});
 
 module.exports = {
   postTweetWithMedia,

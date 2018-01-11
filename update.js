@@ -22,37 +22,31 @@ const TimeEmoji = require('./emoji/time.js');
 
 // logic
 
-const determineNumberOfImages = (next) => {
-  ImageBase.determineNumberOfImages((numberOfImages) => {
-    next(numberOfImages);
-  });
-};
+const determineNumberOfImages = () => new Promise((resolve, reject) => {
+  ImageBase.determineNumberOfImages()
+    .then(numberOfImages => resolve(numberOfImages))
+    .catch(error => reject(error));
+});
 
-const getRandomImageNumber = (numberOfImages, next) => {
-  const low = 0;
-  const high = numberOfImages;
-  const selectedNumber = Math.floor((Math.random() * ((high - low) + 1)) + low);
+const getRandomImageNumber = numberOfImages => Math.floor((Math.random() * (numberOfImages + 1)));
 
-  next(selectedNumber);
-};
+const getImageByNumber = imageNumber => new Promise((resolve, reject) => {
+  ImageBase.getImage(imageNumber)
+    .then(chosenImage => resolve(chosenImage))
+    .catch(error => reject(error));
+});
 
-const getImageByNumber = (imageNumber, next) => {
-  ImageBase.getImage(imageNumber, (chosenImage) => {
-    next(chosenImage);
-  });
-};
+const checkIfImageIsBanned = image => new Promise((resolve, reject) => {
+  BanList.isImageBanned(image)
+    .then((isItBanned, checkedImage) => resolve(isItBanned, checkedImage))
+    .catch(error => reject(error));
+});
 
-const checkIfImageIsBanned = (image, next) => {
-  BanList.isImageBanned(image, (isItBanned) => {
-    next(isItBanned);
-  });
-};
-
-const banImage = (image, next) => {
-  BanList.addImage(image, () => {
-    next();
-  });
-};
+const banImage = image => new Promise((resolve, reject) => {
+  BanList.addImage(image)
+    .then(() => resolve())
+    .catch(error => reject(error));
+});
 
 const constructTweet = () => {
   const places = Places;
@@ -72,29 +66,33 @@ const constructTweet = () => {
   return tweetContent;
 };
 
+const publishTweet = (imagePath, tweetContent) => new Promise((resolve, reject) => {
+  twitterApi.postTweetWithMedia(imagePath, tweetContent, (error) => {
+    if (error) reject(error);
+    resolve();
+  });
+
+  banImage(imagePath);
+});
+
 // main method
 
 const startTheMagic = () => {
-  determineNumberOfImages((numberOfImages) => {
-    getRandomImageNumber(numberOfImages, (chosenImageNumber) => {
-      getImageByNumber(chosenImageNumber, (chosenImage) => {
-        checkIfImageIsBanned(chosenImage, (image, isItBanned) => {
-          if (isItBanned) {
-            startTheMagic();
-          } else {
-            const tweetContent = constructTweet();
-            const imagePath = app.imagePath + image;
-
-            twitterApi.postTweetWithMedia(imagePath, tweetContent, () => {
-              process.exit();
-            });
-
-            banImage(imagePath, () => {});
-          }
-        });
-      });
-    });
-  });
+  determineNumberOfImages()
+    .then(numberOfImages => getRandomImageNumber(numberOfImages))
+    .then(chosenImageNumber => getImageByNumber(chosenImageNumber))
+    .then(chosenImage => checkIfImageIsBanned(chosenImage))
+    .then((imageObject) => {
+      if (imageObject.isItBanned) {
+        startTheMagic();
+      } else {
+        const tweetContent = constructTweet();
+        const imagePath = `${app.imagePath}${imageObject.imageName}`;
+        publishTweet(imagePath, tweetContent)
+          .then(() => process.exit());
+      }
+    })
+    .catch(() => process.exit());
 };
 
 startTheMagic();

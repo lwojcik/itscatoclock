@@ -33,4 +33,4 @@ const postTweetWithMedia = (image, content, next) => {
 
 module.exports = {
   postTweetWithMedia,
-}
+};

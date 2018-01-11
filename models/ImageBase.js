@@ -1,24 +1,20 @@
 const fs = require('fs');
-const appConfig = require('../config/app');
+const { imagePath } = require('../config/app');
 
 const ImageBase = {
-  determineNumberOfImages: (next) => {
-    const imageFolder = appConfig.imagePath;
-
-    fs.readdir(imageFolder, (err, files) => {
-      if (err) throw err;
-      next(files.length);
+  determineNumberOfImages: () => new Promise((resolve, reject) => {
+    fs.readdir(imagePath, (err, files) => {
+      if (err) throw reject(err);
+      resolve(files.length);
     });
-  },
+  }),
 
-  getImage: (number, next) => {
-    const imageFolder = appConfig.imagePath;
-
-    fs.readdir(imageFolder, (err, files) => {
-      if (err) throw err;
-      next(files[number]);
+  getImage: number => new Promise((resolve, reject) => {
+    fs.readdir(imagePath, (err, files) => {
+      if (err) throw reject(err);
+      resolve(files[number]);
     });
-  },
+  }),
 };
 
 module.exports = ImageBase;

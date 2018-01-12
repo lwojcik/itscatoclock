@@ -22,12 +22,12 @@ When executed, it chooses a random image from a pre-configured directory and twe
 * Clone the repository and install dependencies.
 
 ```
-$ git clone git@bitbucket.org:lwojcik/itscatoclock.git
+$ git clone git@github.com:lwojcik/itscatoclock.git
 $ cd itscatoclock
 $ npm install
 ```
 
-* Copy the collection of images to `images/` subfolder inside the project directory.
+* Copy your collection of images to `images/` subfolder inside the project directory.
 
 * Rename the `.env.sample` file to `.env`. Provide the following data:
 ```
@@ -57,21 +57,22 @@ module.exports = places;
 * Run `npm test` in the project folder to ensure the project is set up correctly.
 * Run `crontab -e` and add a cron job to execute the script every full hour:
 ```
-0 * * * * cd /home/lwoo/itscatoclock; node update.js
+0 * * * * node /path/to/itscatoclock update.js
  ```
 * Wait until the next full hour and check your Twitter account. :-)
 
 ## Things to improve someday
 
-* Convert callback hell to promises.
+~~* Convert callback hell to promises.~~
+* Replace MongoDB with [diskdb](https://www.npmjs.com/package/diskdb)
 * Notifications about the success (or failure) of script execution. 
 * Automatic banlist purge when all images get banned.
 
 
 # Project page
 
-[https://bitbucket.org/lwojcik/itscatoclock](https://bitbucket.org/lwojcik/itscatoclock)
+[https://github.com/lwojcik/itscatoclock](https://github.com/lwojcik/itscatoclock)
 
 # License
 
-Licensed under [MIT license](https://bitbucket.org/lwojcik/itscatoclock/raw/HEAD/LICENSE). See [LICENSE](https://bitbucket.org/lwojcik/itscatoclock/raw/HEAD/LICENSE) for more info.
+Licensed under [MIT license](https://raw.githubusercontent.com/lwojcik/itscatoclock/master/LICENSE). See [LICENSE](https://raw.githubusercontent.com/lwojcik/itscatoclock/master/LICENSE) for more info.

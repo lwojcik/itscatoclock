@@ -3,13 +3,13 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const env = process.env;
-const app = require('../../config/app.js');
+const app = require('../../config/app');
 
 describe('App config', function() {
   it('should define app object', function() {
     expect(app).to.be.a('object');
-  })
-  ;
+  });
+
   it('should define app.imagePath property', function() {
     expect(app).to.have.property('imagePath');
   });

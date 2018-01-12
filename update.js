@@ -88,10 +88,11 @@ const startTheMagic = () => {
         const tweetContent = constructTweet();
         const imagePath = `${app.imagePath}${imageObject.imageName}`;
         publishTweet(imagePath, tweetContent)
-          .then(() => process.exit());
+          .then(() => process.exit())
+          .catch(error => { throw new Error(error); });
       }
     })
-    .catch(() => process.exit());
+    .catch(error => { throw new Error(error); });
 };
 
 startTheMagic();

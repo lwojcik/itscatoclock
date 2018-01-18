@@ -66,7 +66,8 @@ module.exports = places;
 ## Things to improve someday
 
 * ~~Convert callback hell to promises.~~
-* Replace MongoDB with [diskdb](https://www.npmjs.com/package/diskdb)
+* Attribution mechanism.
+* Replace MongoDB with [diskdb](https://www.npmjs.com/package/diskdb).
 * Notifications about the success (or failure) of script execution. 
 * Automatic banlist purge when all images get banned.
 

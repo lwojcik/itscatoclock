@@ -16,7 +16,8 @@
   "main": "start.js",
   "scripts": {
     "launch": "node --use_strict update.js",
-    "test": "mocha --recursive",
+    "test": "mocha",
+    "cover": "istanbul cover _mocha",
     "lint": "./node_modules/.bin/eslint ./*"
   },
   "dependencies": {

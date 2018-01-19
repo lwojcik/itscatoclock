@@ -12,4 +12,4 @@ script:
   - mkdir ./images
   - cp ./places.js.sample places.js
   - cp ./.env.sample .env
-  - npm test
+  - istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov

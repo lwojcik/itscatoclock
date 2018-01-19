@@ -2,7 +2,7 @@ const chai = require('chai');
 
 const { expect } = chai;
 
-const BanList = require('../../models/BanList.js');
+const BanList = require('../models/BanList');
 
 describe('BanList Model', function() {
   it('should define BanList object', function() {

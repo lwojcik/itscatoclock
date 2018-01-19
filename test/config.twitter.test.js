@@ -4,7 +4,7 @@ const expect = chai.expect;
 const assert = chai.assert;
 
 const env = process.env;
-const twitter = require('../../config/twitter.js');
+const twitter = require('../config/twitter.js');
 
 describe('Twitter config', function() {
   it('should define twitter object', function() {

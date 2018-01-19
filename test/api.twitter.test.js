@@ -4,8 +4,8 @@ const { expect } = require('chai');
 
 const Twitter = require('twitter');
 
-const twitterConfig = require('../../config/twitter.js');
-const twitterApi = require('../../api/twitter.js');
+const twitterConfig = require('../config/twitter.js');
+const twitterApi = require('../api/twitter.js');
 
 describe('Twitter API library', () => {
   it('should import Twitter API library', () => {

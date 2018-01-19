@@ -3,7 +3,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const env = process.env;
-const app = require('../../config/app');
+const app = require('../config/app');
 
 describe('App config', function() {
   it('should define app object', function() {

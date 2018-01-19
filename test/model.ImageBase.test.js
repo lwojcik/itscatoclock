@@ -2,7 +2,7 @@
 
 const { expect } = require('chai');
 
-const ImageBase = require('../../models/ImageBase.js');
+const ImageBase = require('../models/ImageBase.js');
 
 describe('ImageBase model', function() {
   it('should define ImageBase object', function() {

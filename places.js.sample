@@ -1,8 +1,8 @@
 const places = [
   {
     emoji: '🇺🇸',
-    name: 'Chicago',
-    timezone: 'America/Chicago',
+    name: 'Los Angeles',
+    timezone: 'America/Los_Angeles',
   },
   {
     emoji: '🇺🇸',

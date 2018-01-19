@@ -1,8 +1,4 @@
 const mongoose = require('mongoose');
-const database = require('../config/database');
-
-mongoose.connect(database.url, { useMongoClient: true });
-mongoose.Promise = global.Promise;
 
 const Image = require('./Image');
 

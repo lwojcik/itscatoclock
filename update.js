@@ -10,6 +10,17 @@ const app = require('./config/app.js');
 
 const twitterApi = require('./api/twitter.js');
 
+// database
+
+const mongoose = require('mongoose');
+const database = require('./config/database');
+
+mongoose.connect(database.url).then(
+  () => {},
+  (err) => { console.log(err); },
+);
+mongoose.Promise = global.Promise;
+
 // models
 
 const BanList = require('./models/BanList.js');

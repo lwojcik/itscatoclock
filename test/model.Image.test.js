@@ -2,7 +2,7 @@ const chai = require('chai');
 
 const { expect } = chai;
 
-const Image = require('../../models/Image.js');
+const Image = require('../models/Image.js');
 
 describe('Image model', function() {
   it('should be invalid if name is empty', function(done) {

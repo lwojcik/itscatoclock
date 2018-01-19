@@ -1,3 +1,7 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=c985b6d4fab4c6cca117458481f21e9183d9aa9c054a06bdd12f72382acf614f
+
 language:
   node_js
 
@@ -8,8 +12,16 @@ install:
   - npm install
   - npm install -g codecov
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 script:
   - mkdir ./images
   - cp ./places.js.sample places.js
   - cp ./.env.sample .env
   - istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

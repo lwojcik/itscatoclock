@@ -23,7 +23,7 @@
   "dependencies": {
     "dotenv": "5.0.0",
     "moment-timezone": "0.5.14",
-    "mongoose": "5.0.7",
+    "mongoose": "5.0.8",
     "twitter": "1.7.1"
   },
   "devDependencies": {

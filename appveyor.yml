@@ -15,8 +15,8 @@ test_script:
   - node --version
   - npm --version
   - mkdir images
-  - copy ./places.js.sample places.js
-  - copy ./.env.sample .env
+  - copy places.js.sample places.js
+  - copy .env.sample .env
   # run tests
   - npm test
 

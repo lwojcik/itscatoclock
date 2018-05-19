@@ -1,6 +1,7 @@
 # itscatoclock
 
-[![Build Status](https://travis-ci.org/lwojcik/itscatoclock.svg?branch=master)](https://travis-ci.org/lwojcik/itscatoclock)
+[![Travis Build Status](https://travis-ci.org/lwojcik/itscatoclock.svg?branch=master)](https://travis-ci.org/lwojcik/itscatoclock)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/lwojcik/itscatoclock?svg=true)](https://ci.appveyor.com/project/lwojcik/itscatoclock)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lwojcik/itscatoclock.svg)](https://greenkeeper.io/)
 [![NSP Status](https://nodesecurity.io/orgs/lwojcik/projects/79fc0b24-1685-4f79-8d51-ed10c473ccd5/badge)](https://nodesecurity.io/orgs/lwojcik/projects/79fc0b24-1685-4f79-8d51-ed10c473ccd5)
 [![Known Vulnerabilities](https://snyk.io/test/github/lwojcik/itscatoclock/badge.svg?targetFile=package.json)](https://snyk.io/test/github/lwojcik/itscatoclock?targetFile=package.json)

@@ -7,7 +7,6 @@ language:
 
 os:
   - linux
-  - osx
 
 node_js:
   - "node"
@@ -22,7 +21,8 @@ install:
   - npm install -g codecov
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter; fi
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 

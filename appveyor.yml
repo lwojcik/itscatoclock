@@ -14,9 +14,9 @@ test_script:
   # Output useful info for debugging.
   - node --version
   - npm --version
-  - mkdir ./images
-  - cp ./places.js.sample places.js
-  - cp ./.env.sample .env
+  - mkdir images
+  - copy ./places.js.sample places.js
+  - copy ./.env.sample .env
   # run tests
   - npm test
 

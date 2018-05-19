@@ -5,8 +5,16 @@ env:
 language:
   node_js
 
+os:
+  - linux
+  - osx
+
 node_js:
+  - "node"
+  - "lts/*"
+  - "7"
   - "8"
+  - "9"
   - "10"
 
 install:

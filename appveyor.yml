@@ -1,8 +1,7 @@
 # Test against the latest version of this Node.js version
 environment:
   matrix:
-    - nodejs_version: "node"
-    - nodejs_version: "lts/*"
+    - nodejs_version: "lts"
     - nodejs_version: "7"
     - nodejs_version: "8"
     - nodejs_version: "9"

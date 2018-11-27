@@ -12,7 +12,7 @@ node_js:
   - "lts/*"
 
 install:
-  - npm install
+  - npm ci
   - npm install -g codecov
 
 before_script:

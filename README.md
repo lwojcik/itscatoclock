@@ -3,7 +3,6 @@
 [![Travis Build Status](https://travis-ci.org/lwojcik/itscatoclock.svg?branch=master)](https://travis-ci.org/lwojcik/itscatoclock)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/lwojcik/itscatoclock?svg=true)](https://ci.appveyor.com/project/lwojcik/itscatoclock)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lwojcik/itscatoclock.svg)](https://greenkeeper.io/)
-[![NSP Status](https://nodesecurity.io/orgs/lwojcik/projects/79fc0b24-1685-4f79-8d51-ed10c473ccd5/badge)](https://nodesecurity.io/orgs/lwojcik/projects/79fc0b24-1685-4f79-8d51-ed10c473ccd5)
 [![Known Vulnerabilities](https://snyk.io/test/github/lwojcik/itscatoclock/badge.svg?targetFile=package.json)](https://snyk.io/test/github/lwojcik/itscatoclock?targetFile=package.json)
 [![Maintainability](https://api.codeclimate.com/v1/badges/270cc6a05c357f083a6d/maintainability)](https://codeclimate.com/github/lwojcik/itscatoclock/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/270cc6a05c357f083a6d/test_coverage)](https://codeclimate.com/github/lwojcik/itscatoclock/test_coverage)
@@ -14,7 +13,7 @@ When executed, it chooses a random image from a pre-configured directory and twe
 
 ## Prerequisites
 
-* Node.js 8.9.3 LTS or newer.
+* Node.js - current LTS version.
 * MongoDB database.
 * Server with cron jobs support (Linux or Windows with Task Scheduler).
 * Collection of images to choose from :-)

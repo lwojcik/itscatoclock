@@ -13,7 +13,7 @@ When executed, it chooses a random image from a pre-configured directory and twe
 
 ## Prerequisites
 
-* Node.js 8.9.3 LTS or newer.
+* Node.js - current LTS version.
 * MongoDB database.
 * Server with cron jobs support (Linux or Windows with Task Scheduler).
 * Collection of images to choose from :-)

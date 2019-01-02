@@ -1,15 +1,10 @@
 # itscatoclock
 
-[![Travis Build Status](https://travis-ci.org/lwojcik/itscatoclock.svg?branch=master)](https://travis-ci.org/lwojcik/itscatoclock)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/lwojcik/itscatoclock?svg=true)](https://ci.appveyor.com/project/lwojcik/itscatoclock)
-[![Greenkeeper badge](https://badges.greenkeeper.io/lwojcik/itscatoclock.svg)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io/test/github/lwojcik/itscatoclock/badge.svg?targetFile=package.json)](https://snyk.io/test/github/lwojcik/itscatoclock?targetFile=package.json)
-[![Maintainability](https://api.codeclimate.com/v1/badges/270cc6a05c357f083a6d/maintainability)](https://codeclimate.com/github/lwojcik/itscatoclock/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/270cc6a05c357f083a6d/test_coverage)](https://codeclimate.com/github/lwojcik/itscatoclock/test_coverage)
-
-The following is a script [running my Twitter bot, @itscatoclock](https://twitter.com/itscatoclock).
+The following is a script [that I used to run my now-defunct Twitter bot, @itscatoclock](https://twitter.com/itscatoclock).
 
 When executed, it chooses a random image from a pre-configured directory and tweets it together with current times in different cities. The image is added to the banlist which prevents the same images from being posted more than once.
+
+As of January 2019 the project is not maintained any more.
 
 ## Prerequisites
 
